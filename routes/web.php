@@ -3,17 +3,10 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return response()->json(['error' => 'Unhealthy'], 400);
+    return response()->json(['error' => 'Unhealthy'], 301);
 });
 
-Route::get('/test', function () {
-    return response()->json([
-        'status' => 'ok',
-        'timestamp' => now()
-    ], 200);
-});
-
-Route::get('/health', function () {
+Route::get('/healthz', function () {
     return response()->json([
         'status' => 'ok',
         'timestamp' => now()
